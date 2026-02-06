@@ -176,7 +176,8 @@
 
 <!-- PAGE 1 -->
 <section id="page1" class="active">
-  <img src="IMG_8453.gif" width="200"><br><br>
+  <img src="kiss.gif"
+" width="200"><br><br>
   <h2 class="wiggle-soft">Hello my beautiful princess, will you be my Valentine?</h2>
 
   <button onclick="yes()">Yes</button>
