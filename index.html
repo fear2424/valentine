@@ -33,7 +33,7 @@
     cursor: pointer;
   }
 
-  /* PHOTO LAYOUT FOR PAGE 2 */
+  /* PHOTO LAYOUT FOR PAGE 3 */
   .photo-layout {
     display: flex;
     justify-content: center;
@@ -108,8 +108,20 @@
   <button id="noBtn" onclick="fadeNo()">No</button>
 </section>
 
-<!-- PAGE 2 -->
+<!-- PAGE 2 (YOUR MESSAGE PAGE) -->
 <section id="page2">
+  <h2>My Message to You</h2>
+
+  <p style="max-width:600px; margin:auto; font-size:20px; line-height:1.6;">
+    <!-- Write your message here -->
+  </p>
+
+  <button onclick="showPage(1)">Back</button>
+  <button onclick="showPage(3)">Continue</button>
+</section>
+
+<!-- PAGE 3 (PHOTOS PAGE) -->
+<section id="page3">
   <h2>Our Memories Together</h2>
 
   <div class="photo-layout">
@@ -134,19 +146,18 @@
     I love making memories with you, my love.
   </p>
 
-  <button onclick="showPage(1)">Back</button>
-  <button onclick="showPage(3)">Continue</button>
+  <button onclick="showPage(2)">Back</button>
+  <button onclick="showPage(4)">Continue</button>
 </section>
 
-<!-- PAGE 3 -->
-<section id="page3">
+<!-- PAGE 4 (SHORT MESSAGE + SPOTIFY) -->
+<section id="page4">
   <img src="hug.gif" width="220"><br><br>
 
-  <h2>For You, My Love</h2>
+  <h2>A Little Something From Me</h2>
 
-  <!-- EMPTY POEM AREA -->
-  <p style="max-width:600px; margin:auto; font-size:18px; line-height:1.5;">
-    
+  <p style="max-width:600px; margin:auto; font-size:20px; line-height:1.6;">
+    <!-- Write your short message here -->
   </p>
 
   <br>
@@ -156,7 +167,7 @@
   </a>
 
   <br><br>
-  <button onclick="showPage(2)">Back</button>
+  <button onclick="showPage(3)">Back</button>
 </section>
 
 <script>
