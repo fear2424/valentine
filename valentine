@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>For My Love</title>
+
+<style>
+  body {
+    background-color: pink;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* Glowing border for each section */
+  section {
+    display: none;
+    padding: 20px;
+    margin: 20px;
+    border: 3px solid #ff8ac9;
+    border-radius: 15px;
+    box-shadow: 0 0 15px #ff8ac9, 0 0 30px #ffb3d9;
+    animation: fadeIn 1s ease-in-out;
+  }
+
+  section.active {
+    display: block;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  button {
+    background-color: white;
+    border: 2px solid hotpink;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 18px;
+    margin-top: 20px;
+    transition: transform 0.2s;
+  }
+
+  button:active {
+    transform: scale(1.1);
+  }
+
+  /* Floating hearts */
+  .heart {
+    position: absolute;
+    color: pink;
+    font-size: 25px;
+    animation: floatUp 5s infinite ease-in-out;
+    pointer-events: none;
+  }
+
+  @keyframes floatUp {
+    0% {transform: translateY(100vh); opacity: 0;}
+    50% {opacity: 1;}
+    100% {transform: translateY(-10vh); opacity: 0;}
+  }
+
+  /* Floating sparkles */
+  .sparkle {
+    position: absolute;
+    color: #ffe6fa;
+    font-size: 18px;
+    opacity: 0.8;
+    animation: sparkleFloat 6s infinite ease-in-out;
+    pointer-events: none;
+  }
+
+  @keyframes sparkleFloat {
+    0% { transform: translateY(100vh) scale(0.8); opacity: 0; }
+    40% { opacity: 1; }
+    100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+  }
+
+  /* Falling petals */
+  .petal {
+    position: fixed;
+    top: -10px;
+    color: #ffb6d9;
+    font-size: 20px;
+    opacity: 0.9;
+    animation: fall 6s linear infinite;
+    pointer-events: none;
+  }
+
+  @keyframes fall {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+  }
+
+  /* Wiggle animations */
+  .wiggle-soft {
+    animation: wiggleSoft 2s infinite ease-in-out;
+  }
+  @keyframes wiggleSoft {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(2deg); }
+    75% { transform: rotate(-2deg); }
+  }
+
+  .wiggle-playful {
+    animation: wigglePlayful 1.2s infinite ease-in-out;
+  }
+  @keyframes wigglePlayful {
+    0%, 100% { transform: rotate(0deg); }
+    20% { transform: rotate(4deg); }
+    40% { transform: rotate(-4deg); }
+    60% { transform: rotate(4deg); }
+    80% { transform: rotate(-4deg); }
+  }
+
+  .wiggle-magic {
+    animation: wiggleMagic 3s infinite ease-in-out;
+  }
+  @keyframes wiggleMagic {
+    0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
+    50% { transform: scale(1.05) rotate(1deg); opacity: 0.9; }
+  }
+
+  .wiggle-heartbeat {
+    animation: heartbeat 2.5s infinite ease-in-out;
+  }
+  @keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    30% { transform: scale(1.08); }
+    60% { transform: scale(0.97); }
+  }
+</style>
+</head>
+
+<body>
+
+<!-- Floating hearts -->
+<div class="heart" style="left:10%;">❤️</div>
+<div class="heart" style="left:50%; animation-delay:1s;">💗</div>
+<div class="heart" style="left:80%; animation-delay:2s;">💕</div>
+<div class="heart" style="left:5%; animation-delay:0.5s;">💖</div>
+<div class="heart" style="left:20%; animation-delay:1.2s;">💕</div>
+<div class="heart" style="left:35%; animation-delay:2.1s;">💗</div>
+<div class="heart" style="left:60%; animation-delay:0.8s;">💞</div>
+<div class="heart" style="left:75%; animation-delay:1.7s;">💘</div>
+<div class="heart" style="left:90%; animation-delay:2.4s;">❤️</div>
+
+<!-- Floating sparkles -->
+<div class="sparkle" style="left:12%; animation-delay:0.3s;">✨</div>
+<div class="sparkle" style="left:28%; animation-delay:1.1s;">✨</div>
+<div class="sparkle" style="left:44%; animation-delay:2.0s;">✨</div>
+<div class="sparkle" style="left:58%; animation-delay:0.9s;">✨</div>
+<div class="sparkle" style="left:72%; animation-delay:1.8s;">✨</div>
+<div class="sparkle" style="left:88%; animation-delay:2.6s;">✨</div>
+
+<!-- Falling petals -->
+<div class="petal" style="left:5%; animation-delay:0s;">🌸</div>
+<div class="petal" style="left:15%; animation-delay:1s;">💮</div>
+<div class="petal" style="left:30%; animation-delay:2s;">🌸</div>
+<div class="petal" style="left:45%; animation-delay:0.5s;">💮</div>
+<div class="petal" style="left:60%; animation-delay:1.5s;">🌸</div>
+<div class="petal" style="left:75%; animation-delay:2.5s;">💮</div>
+<div class="petal" style="left:90%; animation-delay:3s;">🌸</div>
+
+<!-- Persistent Music -->
+<audio id="bgm" loop>
+  <source src="Mitski.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  document.addEventListener("click", function() {
+    document.getElementById("bgm").play();
+  }, { once: true });
+</script>
+
+<!-- PAGE 1 -->
+<section id="page1" class="active">
+  <img src="IMG_8453.gif" width="200"><br><br>
+  <h2 class="wiggle-soft">Hello my beautiful princess, will you be my Valentine?</h2>
+
+  <button onclick="yes()">Yes</button>
+  <button id="noBtn" class="wiggle-playful" onclick="noCycle()">No</button>
+</section>
+
+<!-- PAGE 2 -->
+<section id="page2">
+  <h2>
+    Since the day that I heard your beautiful voice I was mesmerized, almost in a trance.
+    I have fallen head over heels for an angel that has come to this world, and every second,
+    every minute my heart longed for your touch, yearning to be closer to you because my heart
+    knew that you were my soulmate and that we were destined to be together.
+    You're perfect in every way and I’ve found myself falling for you more and more as time passed.
+    You're the love of my life, Raneem, and I hope I can make you as happy as you make me.
+    I love you, darling.<br><br>— Aser
+  </h2>
+
+  <button onclick="showPage(3)">Continue</button>
+</section>
+
+<!-- PAGE 3 -->
+<section id="page3">
+  <img src="image.png" width="250"><br><br>
+  <img src="VRChat_2025-12-14_01-29-47.394_2560x1440.png" width="250"><br><br>
+  <img src="VRChat_2026-01-05_08-54-14.644_2560x1440.png" width="250"><br><br>
+
+  <h2>I love making memories with you sweetheart, and I hope we can make new ones
+  for the rest of our life. (Also you're very cute, mwaah)</h2>
+
+  <button onclick="showPage(4)">Continue</button>
+</section>
+
+<!-- PAGE 4 (Gift Page) -->
+<section id="page4">
+  <img src="IMG_8457.gif" width="200"><br><br>
+  <h2 class="wiggle-magic">Here's a small gift to the love of my life</h2>
+
+  <a href="https://www.icloud.com/sharedalbum/#B1hJtdOXm0twSU3">Click here for your gift ❤️</a><br><br>
+
+  <button onclick="showPage(5)">Next</button>
+</section>
+
+<!-- PAGE 5 (Final Page) -->
+<section id="page5">
+  <h2 class="wiggle-heartbeat">
+    ✨ Thank you for being my lover and my Valentine’s date, you’re all I ever think of and all I ever love, i hope these special memories last forever with you my love.
+    I hope you wait until you see what I’ll do next year hehe ❤️
+  </h2>
+
+  <p>🎧 here's a playlist that I made just for you my love mwaah</p>
+
+  <a href="https://open.spotify.com/playlist/6yJlCg5rUMsdDpvotJQKzy?si=ZgCvsH95QGS1n2_jqUXSKw&pt=12d520ebed8af745a5ddf8af34525e82&pi=i0eN3fLXQ4-XT">Open Playlist</a>
+
+</section>
+
+<script>
+  function showPage(num) {
+    document.querySelectorAll("section").forEach(s => s.classList.remove("active"));
+    document.getElementById("page" + num).classList.add("active");
+  }
+
+  function yes() {
+    showPage(2);
+  }
+
+  let noTexts = ["Nah", "Nope", "زوط طيب زوط"];
+  let noIndex = 0;
+
+  function noCycle() {
+    let btn = document.getElementById("noBtn");
+
+    if (noIndex < noTexts.length) {
+      btn.innerText = noTexts[noIndex];
+      noIndex++;
+    }
+  }
+</script>
+
+</body>
+</html>
