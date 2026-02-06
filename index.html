@@ -30,6 +30,7 @@
     border-radius: 10px;
     font-size: 18px;
     margin: 10px;
+    cursor: pointer;
   }
 
   /* PHOTO LAYOUT FOR PAGE 2 */
@@ -74,6 +75,12 @@
     30% { opacity: 1; }
     100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
   }
+
+  /* FADE OUT EFFECT FOR NO BUTTON */
+  .fade-out {
+    opacity: 0;
+    transition: opacity 0.6s ease;
+  }
 </style>
 </head>
 
@@ -98,7 +105,7 @@
   <h2>Will you be my Valentine?</h2>
 
   <button onclick="yes()">Yes</button>
-  <button id="noBtn">No</button>
+  <button id="noBtn" onclick="fadeNo()">No</button>
 </section>
 
 <!-- PAGE 2 -->
@@ -162,10 +169,15 @@
     let bgm = document.getElementById("bgm");
     bgm.volume = 0.6;
     bgm.play();
-
     showPage(2);
+  }
+
+  function fadeNo() {
+    let noBtn = document.getElementById("noBtn");
+    noBtn.classList.add("fade-out");
   }
 </script>
 
 </body>
 </html>
+
