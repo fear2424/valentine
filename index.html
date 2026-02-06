@@ -138,3 +138,29 @@
   <h2>For You, My Love</h2>
 
   <!-- EMPTY POEM AREA -->
+  <p style="max-width:600px; margin:auto; font-size:18px; line-height:1.5;">
+    
+  </p>
+
+  <br>
+
+  <a href="YOUR_SPOTIFY_LINK_HERE" target="_blank" style="color:white; font-size:20px;">
+    💗 Open Spotify Playlist 💗
+  </a>
+
+  <br><br>
+  <button onclick="showPage(2)">Back</button>
+</section>
+
+<script>
+  function showPage(num) {
+    document.querySelectorAll("section").forEach(s => s.classList.remove("active"));
+    document.getElementById("page" + num).classList.add("active");
+  }
+
+  function yes() {
+    let bgm = document.getElementById("bgm");
+    bgm.volume = 0.6;
+    bgm.play();
+
+    showPage
